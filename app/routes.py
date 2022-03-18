@@ -31,7 +31,7 @@ def activity():
 
 @app.route('/raw_data_collection', methods = ['GET', 'POST'] )
 def raw_data():
-    p = "downloadable_data.json"
+    p = "downloadable_data.json.zip"
     return send_file(p, as_attachment=True)
 
 
