@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container">
+    <p> this is a test for left_sentiment content </p>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <div style="width: 600px; height: 200px">
+        <canvas id="myChart" width="100px" height="100px"></canvas>
+    </div>
+    <script>
+        var ctx = document.getElementById('myChart')
+        var barChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{ labels|tojson }},
+                datasets: [{
+                    label: "Left Sentiment Analysis",
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: {{ values|tojson }}
+                }]
+            },
+            maintainAspectRatio: false,
+        })
+    </script>
+
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+#removing pycache
+*__pycache__
+
+#remove venv from repository
+*venv
+
+#removing Flask environment variables
+.env
+
+#removing DS_Store
+app/.DS_Store
+.DS_Store

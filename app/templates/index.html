@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Home</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body>
+  <header>
+
+  </header>
+  <main>
+    <main class="site-wrapper">
+      <div class="pt-table desktop-768">
+        <div class="pt-tablecell page-home relative">
+          <div class="overlay"></div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
+                <div class="page-title  home text-center">
+                  <span class="heading-page">Sentiment Analysis of Ukrainian Conflict Via Twitter
+                  </span>
+                  <p class="mt20">The data you will see on this site is representative of more than 2,700,000 tweets
+                    collected
+                    from February 27th, through March 2nd, following the February 24th Russian invasion of
+                    Ukraine. The aim of this analysis is to produce insight on how English speaking Twitter users
+                    engage with a war that is globally visible in ways that previous military conflicts have not yet
+                    been accessible.
+                    While the original intention of this review was to compare the sentiments of stratified
+                    socio-political groups in the United States, the findings were similar enough that it begged a few
+                    questions
+                    of a more universal sentimentality on the issue: "Does political stratification in the United States
+                    influence the ways
+                    its citizens engage with outbreak of war, or are the sentiments of war a common expression of shared
+                    humanity? "
+                  </p>
+                </div>
+
+                <div class="hexagon-menu clear">
+                  <div class="hexagon-item">
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                      <a href="{{ url_for('total_sentiment') }}" class="hex-content">
+                        <span class="hex-content-inner">
+                          <span class="icon">
+                            <i class="fa fa-universal-access"></i>
+                          </span>
+                          <!-- <a href="total_sentiment.html"><span class='title'>Sentiment</span></a> -->
+                          <span class="title">Sentiment of Total Data Population</span>
+                        </span>
+                        <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                            fill="#1e2530"></path>
+                        </svg>
+                      </a>
+                  </div>
+                  <div class="hexagon-item">
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <a a href="{{ url_for('left_sentiment') }}"class="hex-content">
+                      <span class="hex-content-inner">
+                        <span class="icon">
+                          <i class="fa fa-bullseye"></i>
+                        </span>
+                        <span class="title">Sentiment of Left-Wing Population </span>
+                      </span>
+                      <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                          fill="#1e2530"></path>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="hexagon-item">
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <a href="{{ url_for('right_sentiment') }}" class="hex-content">
+                      <span class="hex-content-inner">
+                        <span class="icon">
+                          <i class="fa fa-braille"></i>
+                        </span>
+                        <span class="title">Sentiment of Right-Wing Population</span>
+                      </span>
+                      <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                          fill="#1e2530"></path>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="hexagon-item">
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <a href="{{ url_for('activity') }}" class="hex-content">
+                      <span class="hex-content-inner">
+                        <span class="icon">
+                          <i class="fa fa-id-badge"></i>
+                        </span>
+                        <span class="title">User Activity</span>
+                      </span>
+                      <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                          fill="#1e2530"></path>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="hexagon-item">
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <a href="{{ url_for('raw_data') }}" class="hex-content">
+                      <span class="hex-content-inner">
+                        <span class="icon">
+                          <i class="fa fa-life-ring"></i>
+                        </span>
+                        <span class="title">Download Raw Data</span>
+                      </span>
+                      <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                          fill="#1e2530"></path>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="hexagon-item">
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <a href="{{ url_for('study_methods') }}" class="hex-content">
+                      <span class="hex-content-inner">
+                        <span class="icon">
+                          <i class="fa fa-clipboard"></i>
+                        </span>
+                        <span class="title">Methods</span>
+                      </span>
+                      <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                          fill="#1e2530"></path>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="hexagon-item">
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <div class="hex-item">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                    <a href="{{ url_for('analysis_conclusion') }}" class="hex-content">
+                      <span class="hex-content-inner">
+                        <span class="icon">
+                          <i class="fa fa-map-signs"></i>
+                        </span>
+                        <span class="title">Conclusion of Analysis</span>
+                      </span>
+                      <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z"
+                          fill="#1e2530"></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+{% block content %}{% endblock %}
+  </main>
+
+  <footer>
+
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.js" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
