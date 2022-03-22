@@ -2,7 +2,145 @@
 
 {% block content %}
     <div class="container">
-        <p> this is a test for methods content </p>
+        <h1>Methods</h1>
+        <p> The data collected for this study was gathered in two parts. First, from a data collection on Kaggle.com that is growing daily,
+            and managed by the user BwandoWando. At the time this methods page was written, the data collection has grown from 2,500,000
+            tweets to 11,600,000. Thanks to BwandoWando for maintaining their efforts in collecting this data for anyone interested in reviewing it.
+            Second, an additional 200,000 tweets were collected using the APIFY tool found at apify.com. Thanks to APIFY for developing such a useful 
+            web scraping tool, and for providing such detailed documentation on the usage of their tool.
+        </p>
+        <p> Before addressing the methods of this study, the author would like to strongly note to any reader that this analysis is not
+            peer reviewed. All findings should be taken with curiosity and be later contested by another individual, or group of individuals.
+        </p>
+
+        <h3>Data Cleaning and Organization</h3>
+        <p> After the collection of the 2,700,000 tweets used in this study was completed, all data was cleaned and organized using the 
+            Pandas data science library, hosted in a Jupyter Notebook, with the following considerations.
+        </p>
+        <h5>Right and Left Identifying Individuals</h5>
+        <ul>
+            <li>Removed accounts that featured no account description.</li>
+            <li>Check account descriptions for key words such as, "Republican" , "Democrat", "Conservative" or "Liberal".</li>
+            <li>Verify the language associated with the account is English.</li>
+            <li>Verify the location of the account was in the United States, where possible. Frequently, the key words in the first step were enough to verify this.</li>
+            <li>Drop accounts and tweets from the dataset that were reflective of bot and/or spam activity by removing duplicates, found by evaluating duplicates of tweet text bodies across the data set.</li>
+            <li>Dropped the following columns from each of the datasets pertaining to self-identified right-trending and left-trending individuals: "Unnamed: 0", "following", "totaltweets", "tweetid", "coordinates", "favorite_count", "extractedts", and "hashtags".</li>
+            <li>Once each CSV file was cleaned to these specifications, all right-trending and left-trending results were concatenated into one dataframe for right-trending individuals, and one dataframe for left-trending individuals. Once concatenated, each dataframe was stored in its own CSV for later use in the analysis portion of the study.</li>
+        </ul>
+        <h5>Total Population</h5>
+        <ul>
+            <li>Verify the language associated with the account is Englis.</li>
+            <li>Verify the location of the account is un the United States, where possible.</li>
+            <li>Drop accounts and tweets from the dataset that were reflective of bot and/or spam activity by remooving duplicates, found by evaluating duplicates of tweet text bodies across the data set.</li>
+            <li>Dropped the following columns: "Unnamed: 0", "usercreatedts", "extractedts", "following".</li>
+            <li>Dataframe was then stored in a CSV file for later use in the analysis portion of the study.</li>
+        </ul>
+
+        <h3>Sentiment Analysis</h3>
+        <p> The sentiment analysis used for this study is a product of engaging with Twitter from the moment Russia's invasion of Ukraine
+            was shared with the world. I was sitting on our couch in the living room at around 10:40PM watching TV when my Twitter application 
+            on my phone started to notify me of what had happened. As I tuned in and out of each news organization's live feed, paying attention
+            to user comments and trending tweets, I realized this was a moment of potential opportunity to discover patterns in the stratified
+            political affiliations of the United States voting block. Due to the subjective nature of sentimentality, the model I developed
+            for this study is just that: subjective. The criteria I have listed below as part of my model could be reevaluated by any one person, 
+            or group of people, as having significantly different meaning than I have applied to them here. Once again I will reiterate, you should 
+            not take these findings as gospel, and you should review the criteria I have chosen, and evaluate whether or not you think they are sensible.
+            In recent years one of the biggest criticisms I have of the political discourse in the United States is the ease with which each affiliation 
+            finds the desire to "scientifically" evaliuate the behavior of the other group. There are endless combinations of human behaviors that can
+            be used to categorize the sum of behaviors of individuals or groups. Everyone should be skeptical of any one study that claims to know 
+            what a group of people, or a person, is in total.
+        </p>
+        <h5>Hostile Language</h5>
+        <p> The criteria for hostile language choices are based on several observable factors in Twitter's user engagement. The first
+            is what I would characterize as "finger pointing". As mentioned in other locations throughout this study, it is common in the 
+            United States for members of the two opposing political affiliations blame the voters, incumbents, or the party as a whole,
+            as being the cause, or being at the root of the cause, for the issue in question. For this reason any tweet that included
+            the mention of a political party was marked as hostile. The next, and most important criteria for the evaluation of hostile 
+            language choices was sympathy for Vladimir Putin or Russia's invasion. It is interesting to note that users that included left-trending 
+            identifiers in their profiles (like "Communist"), and users that included right-trending identifiers (like "Christian") in their profiles showed sympathy for Putin
+            in the body of their tweets. The tendency in the United States to abide McCarthyism or Red Scare the word "communist" is, in totallity,
+            completely unhelpful. Leading political theory suggests both that, Russia is an authoritarian nationalist state and not a communist state, 
+            and that authortiarianism is a right-trending characteristic of political ideation. This study assumes as much, and as such, anybody indicating 
+            sympathy for Russia's mission, or Vladimir Putin, was scored as hostile, regardless of their profile descriptions, in the data set.
+            Lastly, any language choices that called for or glorified the death of Russian soldiers, Putin, or any member of Putin's cabinet scored 
+            a user as hostile. Not all keywords in the model are listed below.
+        </p>
+        <ul>
+            <li>"liberal"</li>
+            <li>"democrat"</li>
+            <li>"conservative</li>
+            <li>"republican"</li>
+            <li>"#istandwithputin</li>
+            <li>"#westernpropaganda"</li>
+        </ul>
+
+        <h5>Defensive Language</h5>
+        <p> Similar to the evaluation of hostile language, the remaining three categories can be observed in some capacity simply 
+            scrolling through Twitter on your own. The factors for defensive language were an apparent indication of smypathy for Ukraine.
+            Additionally, any sympathy toward the Russian soldiers who were speaking out against the war was scored as defensive. In whole 
+            the choices I made for defensive language can, I think, be best summarized as being against the war in any capacity, or being in 
+            support of Ukraine or those harmed by the events. Not all keywords in the model are listed below.
+        </p>
+        <ul>
+            <li>"#ukraine"</li>
+            <li>"guard"</li>
+            <li>"soldier calls mom"</li>
+            <li>"#putinswar</li>
+        </ul>
+
+        <h5> Overlapping Language</h5>
+        <p> The considerations for overlapping language were topics that both groups can easily be observed discussing at the same 
+            time. The primary overlapping language was in regards to the collapse of the value of the Ruble, Russia's main currency.
+            Not all keywords in the model are listed below.
+        </p>
+        <ul>
+            <li>"ruble"</li>
+            <li>"sanctions"</li>
+            <li>"seize"</li>
+        </ul>
+
+        <h5> Unrelated Language</h5>
+        <p> Unrelated language choices have the potential to be a point of contention for the readers of this study. 
+            The most common unrelated language choices were users discussing the Syrian conflict, and the long ongoing 
+            Israeli and Palestinian conflict. I assume everyone is capable of walking and chewing bubblegum at the same time, 
+            so while I cannot stress enough the need for resolution in both the Syrian and Israeli-Palestinian conflicts, 
+            the discussions are best held in their separate spheres of existence. Although I concede the United States' involvement 
+            in all three conflicts is worth waves of criticism. Not all keywords from the model are listed below.
+        </p>
+        <ul>
+            <li>"syria</li>
+            <li>"israel</li>
+            <li>"palestine</li>
+        </ul>
+
+        <h3> Data Plotting</h3>
+        <p> The most significant detail to note with my plotted data is the line graph on the User Activity page. In each of 
+            the cleaned and organized data sets, tweets were gathered by the second. The line graph shown is representative of a span 
+            thirty minutes(1800 seconds) in order to reflect the news cycle surrounding the conflict and the subequent user engagement 
+            on Twitter. Normally, it is not practical to represent 1800 points of data on a single line graph, but given the goal of representing 
+            user engagement to ongoing news developments, this decision remains reasonable, and true of the news cycle across all thirty-minute samples in the 
+            total population dataset. 
+        </p>
+
+        <h3> Technologies Used</h3>
+        <ul>
+            <li> Python </li>
+            <li> Pandas </li>
+            <li> NumPy </li>
+            <li> Plotly </li>
+            <li> MatplotLib </li>
+            <li> Flask </li>
+            <li> Jinja2 </li>
+            <li> Chart.JS </li>
+            <li> Jupyter Notebook </li>
+            <li> APIFY </li>
+        </ul>
+
+        <h3> Acknowledgements </h3>
+        <ul>
+            <li><a href="https://www.kaggle.com/datasets/bwandowando/ukraine-russian-crisis-twitter-dataset-1-2-m-rows" target="_blank">BwandoWando</a></li>
+        </ul>
+
 
     </div>
 
