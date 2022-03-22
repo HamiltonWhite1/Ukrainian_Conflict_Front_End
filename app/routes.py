@@ -26,7 +26,7 @@ def right_sentiment():
 
 @app.route('/activity', methods = ['GET', 'POST'] )
 def activity():
-    from app.results import m_time_list, m_count_list
+    from app.results import m_time_list, m_count_list #returning variables from results page to keep route functions cleaner. 
     activity_labels = m_time_list
     activity_values = m_count_list
     return render_template('activity.html', labels=activity_labels, values=activity_values)
