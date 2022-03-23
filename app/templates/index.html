@@ -57,12 +57,12 @@
                       <div></div>
                       <div></div>
                     </div>
-                      <a href="{{ url_for('total_sentiment', _anchor='total_sent') }}" class="hex-content">
+                    <!-- the '_anchor=' jinja2 parameter is scrolling the end user to where the 'url_for' div id begins. Compare to the relevant template for clarity.-->
+                      <a href="{{ url_for('total_sentiment', _anchor='total_sent') }}" class="hex-content"> 
                         <span class="hex-content-inner">
                           <span class="icon">
                             <i class="fa fa-universal-access"></i>
                           </span>
-                          <!-- <a href="total_sentiment.html"><span class='title'>Sentiment</span></a> -->
                           <span class="title">Sentiment of Total Data Population</span>
                         </span>
                         <svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1"
